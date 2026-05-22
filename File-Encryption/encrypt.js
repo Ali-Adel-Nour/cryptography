@@ -18,7 +18,7 @@ crypto.pbkdf2(password, salt, 1_000_000, 32, 'sha512', (err, key) => {
 
     const cipher = crypto.createCipheriv(algorithm, key, iv);
     const plaintext = fs.createReadStream('data.txt');
-    const encrypted = fs.createWriteStream('data.enc');
+    const encrypted = fs.createWriteStream('data.enc'); //salt+iv+ciphertext+mac
 
     encrypted.write(salt);
     encrypted.write(iv);
