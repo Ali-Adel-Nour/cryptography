@@ -21,6 +21,10 @@ socket.on("data", (data) => {
     console.log("Received data from client:", data.toString());
 });
 
+socket.on("end", () => {
+    console.log("Connection ended by client");
+});
+
 server.listen(443, () => {
     console.log("TLS server listening on port 443");
 });
